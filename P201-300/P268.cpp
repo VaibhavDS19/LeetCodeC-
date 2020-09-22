@@ -1,8 +1,16 @@
 class Solution {
 public:
-    long missingNumber(vector<int>& nums) {
-        long sum=0, j=0;
-        for(int i:nums) { sum+=i; j++; }
-        return j*(j+1)/2-sum;
-    }
+    int missingNumber(vector<int>& nums) {
+        int res = nums.size();
+        for(int i = 0;i < nums.size();i++){
+            res ^= nums[i] ^ i;
+        }
+    return  res;
+}
 };
+static const auto io_accelerator = []() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 0;
+}();
